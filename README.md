@@ -29,7 +29,7 @@ A KD-Tree is a binary tree that splits points between alternating axes. By separ
 
 * Consecutive points will flow left if less than root x, or right if greater.
 
-* Since we previously split in the x-dimension, the root was at depth 0, and split the x region. The next point became the left child of root and had a depth of 1, and split the y region. 
+* Since we previously split in the x-dimension, the root was at depth 0, and split the x region. The next point has a depth of 1, and split the y region. 
 
 * A point at depth 2 will split the z region , so the split dimension number can actually be calculated as depth % d, where d is the number of dimensions we are working with. 
 
