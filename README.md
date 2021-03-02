@@ -1,4 +1,25 @@
-## KDTree for Euclidean Clustering
+## KD-Tree for Euclidean Clustering
+
+C++ KD-Tree implementation with following functionality:
+
+- neighbours within a given distance
+- euclidean clustering method that groups individual cluster indices based on their proximity
+
+## Installation
+
+### Ubuntu 
+
+```bash
+
+$> git clone https://github.com/Ip-umd/EucledianClustering.git
+$> cd EucledianClustering 
+$> mkdir build && cd build
+$> cmake ..
+$> make
+$> ./test
+```
+
+## Description
 
 A KD-Tree is a binary tree that splits points between alternating axes. By separating space by splitting regions, nearest neighbor search can be made much faster when using an algorithm like Euclidean clustering. 
 
@@ -23,17 +44,3 @@ The naïve approach of finding nearby neighbors is to go through every single po
 **Euclidean Clustering:**
 
 Once the KD-Tree method for searching for nearby points is implemented, its not difficult to implement a Euclidean clustering method that groups individual cluster indices based on their proximity.
-
-## Installation
-
-### Ubuntu 
-
-```bash
-
-$> git clone https://github.com/Ip-umd/EucledianClustering.git
-$> cd EucledianClustering 
-$> mkdir build && cd build
-$> cmake ..
-$> make
-$> ./test
-```
