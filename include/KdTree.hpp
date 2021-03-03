@@ -24,7 +24,7 @@ class KdTree
 		void searchHelper(std::vector<float> target, Node* node, uint depth, float distanceTol, std::vector<int> &ids);
 
 		// Helper function for eucledianCluster function
-		void clusterHelper(int indices, std::vector<bool>& processed, const std::vector<std::vector<float>>& points, KdTree* tree, std::vector<int>& cluster, float distanceTol);
+		void clusterHelper(int indices, std::vector<bool>& processed, const std::vector<std::vector<float>>& points, std::vector<int>& cluster, float distanceTol);
 
 	public:
 
@@ -39,7 +39,7 @@ class KdTree
 		std::vector<int> search(std::vector<float> target, float distanceTol);
 
 		// Function to obtain list of indices for each cluster based on their proximity
-		std::vector<std::vector<int>> euclideanCluster(const std::vector<std::vector<float>>& points, KdTree* tree, float distanceTol);
+		std::vector<std::vector<int>> euclideanCluster(const std::vector<std::vector<float>>& points, float distanceTol);
 
 };
 

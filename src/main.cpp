@@ -23,14 +23,14 @@ int main(){
   }
 
   std::cout << "Test Search" << std::endl;
-  std::vector<int> nearby = tree->search({7,5},3.0);
+  std::vector<int> nearby = tree->search({-6,7},3.0);
   for(int index : nearby) {
     std::cout << index << ",";
   }
   std::cout << std::endl;
 
   std::cout << "Test Eucledian Clustering" << std::endl;
-  std::vector<std::vector<int>> clusters = tree->euclideanCluster(points, tree, 3.0);
+  std::vector<std::vector<int>> clusters = tree->euclideanCluster(points, 3.0);
   for(auto index : clusters) {
     for (auto i : index) {
     std::cout << i << ",";

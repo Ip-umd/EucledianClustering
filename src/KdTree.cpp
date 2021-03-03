@@ -55,17 +55,17 @@ std::vector<int> KdTree::search(std::vector<float> target, float distanceTol) {
 }
 
 
-void KdTree::clusterHelper(int indices, std::vector<bool>& processed, const std::vector<std::vector<float>>& points, KdTree* tree, std::vector<int>& cluster, float distanceTol) {
+void KdTree::clusterHelper(int indices, std::vector<bool>& processed, const std::vector<std::vector<float>>& points, std::vector<int>& cluster, float distanceTol) {
 	processed[indices] = true;
 	cluster.push_back(indices);
 	std::vector<int> nearest = search(points[indices], distanceTol);
 	for(auto i : nearest) {
-		if(!processed[i]) clusterHelper(i, processed, points, tree, cluster, distanceTol);
+		if(!processed[i]) clusterHelper(i, processed, points, cluster, distanceTol);
 	}
 
 }
 
-std::vector<std::vector<int>> KdTree::euclideanCluster(const std::vector<std::vector<float>>& points, KdTree* tree, float distanceTol)
+std::vector<std::vector<int>> KdTree::euclideanCluster(const std::vector<std::vector<float>>& points, float distanceTol)
 {
 
 	std::vector<std::vector<int>> clusters;
@@ -74,7 +74,7 @@ std::vector<std::vector<int>> KdTree::euclideanCluster(const std::vector<std::ve
 	for(int i=0; i<points.size(); i++) {
 		if(!processed[i]){
 		  std::vector<int> cluster;
-		  clusterHelper(i, processed, points, tree, cluster, distanceTol);
+		  clusterHelper(i, processed, points, cluster, distanceTol);
 		  clusters.push_back(cluster);
 		}
 
